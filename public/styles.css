@@ -1,0 +1,434 @@
+/* Custom Styles & Micro-Animations */
+
+@layer utilities {
+  .backdrop-blur-xs {
+    backdrop-filter: blur(4px);
+  }
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+/* Modern Branded Loader Overlay */
+#loader {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s;
+}
+
+/* Animated Glowing Logo Icon */
+.loader-logo-wrapper {
+  position: relative;
+  width: 72 h;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.loader-glow {
+  position: absolute;
+  inset: -8px;
+  background: linear-gradient(135deg, #0284c7, #059669, #f97316);
+  border-radius: 24px;
+  filter: blur(14px);
+  opacity: 0.75;
+  animation: pulse-glow 2s infinite alternate ease-in-out;
+}
+
+.loader-logo-box {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #0284c7, #059669);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.5);
+}
+
+@keyframes pulse-glow {
+  0% { transform: scale(0.95); opacity: 0.5; }
+  100% { transform: scale(1.1); opacity: 0.85; }
+}
+
+/* Sleek Glassmorphic Progress Card */
+.loader-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem 2rem;
+  border-radius: 24px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.loader-progress-track {
+  width: 100%;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 1rem 0 0.75rem 0;
+}
+
+.loader-progress-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8, #34d399, #fb923c);
+  border-radius: 10px;
+  transition: width 0.12s ease-out;
+}
+
+/* Hide state */
+#loader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+html[lang="hi"],
+html[lang="mr"] {
+  font-family: "Noto Sans Devanagari", "Plus Jakarta Sans", sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.6);
+}
+
+/* Nav Item active underline styling */
+.nav-item.active {
+  color: #0284c7;
+  border-bottom-color: #0284c7;
+  font-weight: 700;
+}
+
+.dark .nav-item.active {
+  color: #38bdf8;
+  border-bottom-color: #38bdf8;
+}
+
+/* Glassmorphism utility */
+.glass-card {
+  background: rgba(188, 122, 122, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.dark .glass-card {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(30, 41, 59, 0.8);
+}
+
+/* Card hover animation */
+.item-card {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.item-card:hover {
+  transform: translateY(-4px);
+}
+
+  //* =========================================================
+   1. LIGHT MODE GIF BACKGROUND
+   ========================================================= */
+html:not(.dark) body {
+  /* Path to your GIF file */
+  background-image: url('..w-bg.gif'); 
+
+  /* Cover full screen viewport */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Keep background fixed while scrolling page content */
+  background-attachment: fixed;
+  
+  /* Fallback color while GIF loads */
+  background: url('..w-bg.gif');
+}
+  
+  /* =========================================================
+     2. CURSOR GRADIENT GLOW TRAIL EFFECT
+     ========================================================= */
+
+/* =========================================================
+   AESTHETIC CUSTOM CURSOR - LIGHT MODE
+   Lavender + Mint
+   ========================================================= */
+
+#cursor-gradient {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 65px;
+  height: 65px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  transform: translate(-50%, -50%);
+
+  /* Soft lavender + mint glow */
+  background: radial-gradient(
+    circle,
+    rgba(124, 84, 245, 0.38) 0%,
+    rgba(130, 102, 241, 0.25) 35%,
+    rgba(101, 237, 182, 0.18) 65%,
+    rgba(30, 15, 15, 0) 100%
+  );
+
+  transition:
+    transform 0.08s ease-out,
+    opacity 0.3s ease;
+
+  z-index: 9999;
+
+  /* Clean appearance */
+  mix-blend-mode: normal;
+
+  /* Slight blur for soft aesthetic glow */
+  filter: blur(1px);
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+html.dark #cursor-gradient {
+  background: radial-gradient(
+    circle,
+    rgba(196, 181, 253, 0.45) 0%,
+    rgba(139, 92, 246, 0.30) 38%,
+    rgba(110, 231, 183, 0.18) 68%,
+    rgba(15, 23, 42, 0) 100%
+  );
+
+  mix-blend-mode: screen;
+
+  filter: blur(1px);
+}
+  
+  /* Hide ambient cursor light on mobile touch screens */
+  @media (hover: none) and (pointer: coarse) {
+    #cursor-gradient {
+      display: none !important;
+    }
+  }
+  
+  /* =========================================================
+     3. ENHANCED HOVER EFFECTS FOR ALL BUTTONS
+     ========================================================= */
+  button,
+  a.inline-flex,
+  .btn,
+  input[type="submit"] {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Lift on hover */
+  button:hover,
+  a.inline-flex:hover,
+  .btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 20px -5px rgba(2, 132, 199, 0.25),
+                0 4px 6px -2px rgba(5, 150, 105, 0.15) !important;
+  }
+  
+  /* Click feedback scale down */
+  button:active,
+  a.inline-flex:active,
+  .btn:active {
+    transform: translateY(0) scale(0.98) !important;
+  }
+  
+  /* Shimmer overlay effect on hover */
+  button::after,
+  a.inline-flex::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      60deg,
+      transparent,
+      rgba(255, 255, 255, 0.25),
+      transparent
+    );
+    transform: rotate(30deg) translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+  
+  button:hover::after,
+  a.inline-flex:hover::after {
+    transform: rotate(30deg) translateX(100%);
+  }
+
+  /* =====================================================
+   WISHLIST BUTTON
+   ===================================================== */
+
+.wishlist-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /*background: #ffffff !important;*/
+}
+
+.wishlist-button {
+    position: relative;
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    margin: 0;
+
+    border: none;
+    outline: none;
+
+    /*background: #ffffff !important;*/
+    color: #059669;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        color 0.2s ease;
+}
+
+.wishlist-button:hover {
+    /*background: #f1f5f9 !important;*/
+    
+    transform: scale(1.05);
+}
+
+.wishlist-icon {
+    width: 27px !important;
+    height: 27px !important;
+
+    display: block;
+
+    color: #059669;
+
+    stroke-width: 2;
+}
+
+
+/* =====================================================
+   WISHLIST NUMBER BADGE
+   ===================================================== */
+
+#wishlistBadge {
+    position: absolute;
+
+    /* Position at top-right of bookmark */
+    top: -1px;
+    right: -0px;
+
+    /* Perfect circle */
+    width: 20px;
+    height: 20px;
+
+    min-width: 20px;
+    min-height: 20px;
+
+    padding: 0;
+
+    /* Green background */
+    background: #059669 !important;
+
+    /* White number */
+    color: #ffffff !important;
+
+    /* Center the 0 perfectly */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    /* Perfect circle */
+    border-radius: 80% !important;
+
+    /* White separation from icon */
+    border: 2px solid #ffffff !important;
+
+    /* Number styling */
+    font-family: Arial, sans-serif;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+
+    /* Prevent text from moving */
+    text-align: center;
+
+    box-sizing: border-box;
+
+    /* Keep badge above bookmark */
+    z-index: 10;
+}
+
+
+/* =====================================================
+   FORCE WHITE BACKGROUND
+   ===================================================== */
+
+/*.wishlist-wrapper,
+.wishlist-button {
+    background-color: #ffffff !important;
+}*/
+
+
+/* Remove any dark-mode background from wishlist 
+.dark .wishlist-wrapper,
+.dark .wishlist-button {
+    background-color: #ffffff !important;
+}*/
+
+
+/* Keep badge white border even in dark mode 
+.dark #wishlistBadge {
+    border-color: #ffffff !important;
+}*/
